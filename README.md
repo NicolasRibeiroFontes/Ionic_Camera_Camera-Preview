@@ -35,4 +35,6 @@ Run: npm install @ionic-native/camera-preview@3
 5. Developed Camera Preview Page
 - Look pages/List
 
+## Demonstrations
+![Farmers Market Finder Demo](camera.gif)
 ![Farmers Market Finder Demo](camera-preview.gif)
