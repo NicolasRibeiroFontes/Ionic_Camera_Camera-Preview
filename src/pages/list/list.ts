@@ -6,14 +6,15 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
   templateUrl: 'list.html'
 })
 export class ListPage {
-  
+
   picture: string;
+  cameraInterval: any;
 
   constructor(private cameraPreview: CameraPreview) {
-    
+
   }
 
-  startCamera(){
+  startCamera() {
     const cameraPreviewOpts: CameraPreviewOptions = {
       x: 0,
       y: 0,
@@ -25,21 +26,21 @@ export class ListPage {
       toBack: true,
       alpha: 1
     };
-    
+
     this.cameraPreview.startCamera(cameraPreviewOpts).then(
       (res) => {
         console.log(res)
-        setInterval((data) => {
+        this.cameraInterval = setInterval(() => {
           this.takePhotoPreview();
-        },500);
+        }, 500);
       },
       (err) => {
         alert('Error when the app was starting the camera');
       });
   }
 
-  takePhotoPreview(){
-    
+  takePhotoPreview() {
+
     const pictureOpts: CameraPreviewPictureOptions = {
       width: 1280,
       height: 1280,
@@ -50,15 +51,18 @@ export class ListPage {
       this.picture = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
       alert('Error when the app was taking the picure');
-    });    
+    });
   }
 
-  stopCamera(){    
+  stopCamera() {
+    clearInterval(this.cameraInterval);
+    
     this.cameraPreview.switchCamera();
-    
+
     this.cameraPreview.setColorEffect('negative');
-    
+
     this.cameraPreview.stopCamera();
+
 
     this.picture = '';
   }
