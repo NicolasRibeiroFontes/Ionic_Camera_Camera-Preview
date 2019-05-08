@@ -12,19 +12,25 @@ App developed using Native Camera and Native Camera Preview from Ionic Framework
 ionic start Camera01 --type=ionic-angular
 
 2. Installed Camera Plugin (https://ionicframework.com/docs/native/camera)
+
 Run: ionic cordova plugin add cordova-plugin-camera
+
 Run: npm install @ionic-native/camera
+
 Set Code in config.xml: 
 <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
  <string>You can take photos</string>
 </config-file>
 
 3. Installed Camera Preview Plugin (https://www.npmjs.com/package/cordova-plugin-camera-preview)
+
 Run: ionic cordova plugin add cordova-plugin-camera-preview
+
 Run: npm install @ionic-native/camera-preview@3
 
+
 4. Developed Camera Page
-### Look pages/Home
+- Look pages/Home
 
 5. Developed Camera Preview Page
-### Look pages/List
+- Look pages/List
