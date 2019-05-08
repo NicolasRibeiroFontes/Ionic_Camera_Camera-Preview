@@ -3,21 +3,18 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Câmera Preview</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+<ion-content padding text-center>
+  <button ion-button secondary (click)="startCamera()">Start Preview</button>
+  <button ion-button danger (click)="stopCamera()">Stop Preview</button>
+
+  <img class="profile-photo" text-center [src]="picture" alt="">
 </ion-content>
+<ion-footer text-center>
+  <br/>
+    Developed by Nicolas Fontes
+    <br/>
+  </ion-footer>
